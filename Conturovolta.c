@@ -1,26 +1,21 @@
-#include <stdio.h>
-#include <string.h>
+char *gcdOfStrings(char *str1, char *str2, char *result)
+{
 
-int main() {
-    int count[10] = {0}; 
-    char str[1001]; 
-
-    if (scanf("%[^\n]", str) != 1) {
-        return 0; 
+    if (str1 == str2 || str2 == str1)
+    {
+        strcpy(result, str1);
     }
-
-   
-    int len = strlen(str); 
-
-    for (int i = 0; i < len; i++) {
-        if (str[i] >= '0' && str[i] <= '9') {
-            count[str[i] - '0']++; 
-        }
+    else if (str1 + str2 == str2)
+    {
+        strcpy(result, str1);
+     }
+    else if (str2 + str1 == str1)
+    {
+        strcpy(result, str2);
     }
-
-    for (int i = 0; i < 10; i++) {
-        printf("%d ", count[i]);
+    else
+    {
+        strcpy(result, "");
     }
-
-    return 0;
+    return result;
 }
